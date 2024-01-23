@@ -42,10 +42,9 @@ fun starteQuiz(fragenListe: List<Quizfrage>) {
                 println("\u001B[31m" + "Leider Falsch, die richtige antwort ist: ${aktuelleFrageArray.richtigeAntwort} du hast jetzt $punkte Punkte" + "\u001B[0m")
                 gestellteFragen++
             }
-        }
-        println("Das Quiz ist zu ende, du hast von $gestellteFragen Fragen $richtigeAntwort richtige Antworten, du hast jetzt $punkte Punkte geschaft!")
-
     }
+    println("Das Quiz ist zu ende, du hast von $gestellteFragen Fragen $richtigeAntwort richtige Antworten, du hast jetzt $punkte Punkte geschaft!")
+}
 
 
 
