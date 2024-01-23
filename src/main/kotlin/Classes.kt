@@ -1,13 +1,13 @@
 class Quizfrage(val fragen: String, val antwortmoeglichkeiten: List<String>, var richtigeAntwort: String, var zeitLimit: Boolean) {
-    //hier die antwortmöglichkeiten werden geschuffelt, weil in der liste immer die erste Option die richtige Antwort ist
-    //und deswegen ist die val antwortmoeglichkleiten in den Parameter keine funktion mehr hat weil ich ihn durch gemischterAntworten ersetzt habe, damit die shuffled funktion mit ienbauen kann.
+    //hier die antwortmöglichkeiten werden geschuffelt, weil in der liste, immer die erste Option die richtige Antwort ist
+    //und deswegen ist die val antwortmoeglichkleiten in den Parameter keine funktion mehr hat, weil ich ihn durch gemischterAntworten ersetzt habe, damit die shuffled funktion mit ienbauen kann.
     var gemischterAntworten = antwortmoeglichkeiten.shuffled()
-
 
     fun pruefeAntwort(spielerAntwort: String): Boolean {
         return spielerAntwort.lowercase() == richtigeAntwort.lowercase()
-        //hier wird die Eingabe von der Spieler mit den antwortmöglichkeiten verglichen
-        //Ich habe ein neuer Wert gesetzt "spielerAntwort" und die durch == um mit den richtigenAntwort vom spieler zu vergleichen
+    //hier wird die Eingabe von der Spieler mit den antwortmöglichkeiten verglichen
+    //Ich habe ein neuer Wert gesetzt "spielerAntwort" und die durch == um mit der Antwort, die
+    // der Spieler eingegeben hat, mit der richtigen Antwort aus der liste, zu vergleichen
     }
 }
 fun starteQuiz(fragenListe: List<Quizfrage>) {
@@ -17,24 +17,23 @@ fun starteQuiz(fragenListe: List<Quizfrage>) {
 
 //aktuelleFrageArray het kein konkrete funktion und es ist nur für die defenition im restlichen code notwendig
     for (aktuelleFrageArray in fragenListe) {
-        val aktuelleFrage = aktuelleFrageArray
 
         println(aktuelleFrageArray.fragen)
-        print(aktuelleFrageArray.gemischterAntworten)
+        println(aktuelleFrageArray.gemischterAntworten)
         //der eingabe vom spieler wird mit readln gelesen und dann mit der Parameter in der if funktion
-        //die antwort geprüft und vergelichen, dass das klein, Groß schreiben kein problem dargestellaber mit distanzen bleibt ein problem
-        //und habe versucht dies zu beheben aber auch mit Ki die beispiele waren mir zu kompliziert
+        //die antwort geprüft und vergelichen, dass das kleinGroß schreiben kein problem dargestellaber mit distanzen bleibt ein problem
+        //und habe versucht dies zu beheben, aber auch mit Ki die beispiele waren mir zu kompliziert
         val spielerAntwort = readln()
 
             if (aktuelleFrageArray.pruefeAntwort(spielerAntwort)) {
                 richtigeAntwort++
 
-                if (aktuelleFrage.zeitLimit) {
+                if (aktuelleFrageArray.zeitLimit) {
                     punkte += 10
                 } else {
                     punkte += 5
                 }
-                //ich habe es versucht eine var mit color zu defenieren wie die Dozenten erklärt haben nähmlich, dass man mit .farbe die farbe bestimmt
+                //ich habe es versucht eine var mit color zu defenieren wie die Dozenten erklärt haben nähmlich, dass man mit (.farbe) die farbe bestimmt
                 //aber für die lesbarkeit war für mich auch schwer, deswegen habe ich mir diese methoden aus den beispielen online geholt.
                 println("\u001B[32mRichtiger Antwort, du hast jetzt $punkte Punkte geschafft\u001B[0m")
                 gestellteFragen++
