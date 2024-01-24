@@ -9,6 +9,14 @@ fun main() {
     val kotlin = kotlin.shuffled()
     val geschichte = geschichte.shuffled()
 
+    var spieler1: Spieler
+    var spieler2: Spieler
+    var runden: Int = 5
+
+
+
+
+
     println("Wählen Sie eine Kategorie für das Spiel aus:\n" +
            "1.   Programmieren\n" +
            "2.     Geschichte\n" +
@@ -111,3 +119,4 @@ fun starteQuizSport(sport: List<QuizSport>) {
     }
     println("Das Quiz ist zu ende, du hast von $gestellteFragen Fragen $richtigeAntwort richtige Antworten, du hast jetzt $punkte Punkte geschaft!")
 }
+
