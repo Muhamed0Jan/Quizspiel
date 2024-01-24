@@ -123,11 +123,11 @@ val geschichte = listOf(
     ),
         QuizGeschichte(
         "Fand die Französische Revolution im 18. Jahrhundert statt?",
-        true
+        false
     ),
         QuizGeschichte(
         "War Napoleon Bonaparte ein britischer General?",
-        true
+        false
     ),
         QuizGeschichte(
         "War der Erste Weltkrieg von 1914 bis 1918?",
@@ -135,11 +135,11 @@ val geschichte = listOf(
     ),
         QuizGeschichte(
         "War Alexander der Große ein ägyptischer Pharao?",
-        true
+        false
     ),
     QuizGeschichte(
         "War Julius Caesar der erste römische Kaiser?",
-        true
+        false
     ),
     QuizGeschichte(
         "War die Berliner Mauer bis 1989 intakt?",
@@ -147,11 +147,11 @@ val geschichte = listOf(
     ),
     QuizGeschichte(
         "War Otto von Bismarck ein US-Präsident?",
-        true
+        false
     ),
     QuizGeschichte(
         "War die Renaissance eine Periode des kulturellen Aufschwungs in Europa?",
-        true
+        false
     ),
     QuizGeschichte(
         "War Leonardo da Vinci ein bekannter Wissenschaftler während der Aufklärung?",

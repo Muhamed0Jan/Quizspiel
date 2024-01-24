@@ -30,11 +30,6 @@ fun main() {
     println()
     println()
 
-//    starteQuizSport(sport)
-//    starteQuizKotlin(kotlin)
-//    starteQuizGeschichte(geschichte)
-
-
 }
 
 fun starteQuizKotlin(kotlin: List<QuizKotlin>) {
@@ -64,24 +59,25 @@ fun starteQuizKotlin(kotlin: List<QuizKotlin>) {
     }
 }
 
-fun starteQuizGeschichte(geschichte: List<QuizGeschichte>) {
+fun starteQuizGeschichte(geschichte: List<QuizGeschichte>): Boolean {
     for (aktuelleFrageGeschichte in geschichte){
         println(aktuelleFrageGeschichte.geschichte)
         val geschichteSpieler = readln().toBoolean()
 
         if (aktuelleFrageGeschichte.pruefeGeschcihte(geschichteSpieler)) {
-            println("\u001B[Richtig!\u001B[0m")
+            println("\u001B[32m"+"Richtig!\u001B[0m")
             println()
             gestellteFragen++
             punkte +=10
         }else{
-            println("\u001B[31m" + "Leider flasch\u001B[0m\"")
+            println("\u001B[31m" + "Leider flasch!\u001B[0m")
             println()
             gestellteFragen++
             punkte += 5
         }
         aktuelleFrageGeschichte.richtigeAntwort
     }
+    return false
 }
 
 fun starteQuizSport(sport: List<QuizSport>) {
