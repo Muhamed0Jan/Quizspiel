@@ -9,8 +9,10 @@ fun main() {
     val kotlin = kotlin.shuffled()
     val geschichte = geschichte.shuffled()
 
-    println("Wählen Sie eine Kategorie für das Spiel aus:" +
-            "1 - Programmieren" +  "2 - Geschichte" +  "3  - Sport")
+    println("Wählen Sie eine Kategorie für das Spiel aus:\n" +
+           "1.   Programmieren\n" +
+           "2.     Geschichte\n" +
+            "3.       Sport \n")
     val kategorie = readln()
     val eingabe: String = kategorie
 
@@ -21,14 +23,16 @@ fun main() {
     when(kategorie) {
         "1" -> starteQuizKotlin(kotlin)
         "2" -> starteQuizGeschichte(geschichte)
-        "3" -> starteQuizSport(sport)
-    }
+        "3" -> starteQuizSport(sport)}
+
     pruefeEingabe()
     print("Viel Glück!")
+    println()
+    println()
 
-    starteQuizSport(sport)
-    starteQuizKotlin(kotlin)
-    starteQuizGeschichte(geschichte)
+//    starteQuizSport(sport)
+//    starteQuizKotlin(kotlin)
+//    starteQuizGeschichte(geschichte)
 
 
 }
@@ -47,12 +51,12 @@ fun starteQuizKotlin(kotlin: List<QuizKotlin>) {
 
         if (aktuelleFrageKotlin.pruefeKotlin(kotlinSpieler)) {
             println("\u001B[32mRichtiger Antwort, du hast jetzt $punkte Punkte geschafft\u001B[0m")
-            gestellteFragen++
             richtigeAntwort++
+            gestellteFragen++
             punkte += 10
         } else {
             println("\u001B[31m" + "Leider Falsch, die richtige antwort ist: ${aktuelleFrageKotlin.richtigeAntwort} du hast jetzt $punkte Punkte" + "\u001B[0m")
-            punkte += 5
+            punkte -= 5
             gestellteFragen++
         }
 
@@ -62,13 +66,19 @@ fun starteQuizKotlin(kotlin: List<QuizKotlin>) {
 
 fun starteQuizGeschichte(geschichte: List<QuizGeschichte>) {
     for (aktuelleFrageGeschichte in geschichte){
-        println(aktuelleFrageGeschichte)
+        println(aktuelleFrageGeschichte.geschichte)
         val geschichteSpieler = readln().toBoolean()
 
         if (aktuelleFrageGeschichte.pruefeGeschcihte(geschichteSpieler)) {
             println("\u001B[Richtig!\u001B[0m")
+            println()
+            gestellteFragen++
+            punkte +=10
         }else{
-            println("\u001B[31m" + "Leider flasch" + "\"\\u001B[0m\"")
+            println("\u001B[31m" + "Leider flasch\u001B[0m\"")
+            println()
+            gestellteFragen++
+            punkte += 5
         }
         aktuelleFrageGeschichte.richtigeAntwort
     }
@@ -92,7 +102,7 @@ fun starteQuizSport(sport: List<QuizSport>) {
             if (aktuelleFrageArray.zeitLimit) {
                 punkte += 10
             } else {
-                punkte += 5
+                punkte -= 5
             }
             //ich habe es versucht eine var mit color zu defenieren wie die Dozenten erklärt haben nähmlich, dass man mit (.farbe) die farbe bestimmt
             //aber für die lesbarkeit war für mich auch schwer, deswegen habe ich mir diese methoden aus den beispielen online geholt.
