@@ -1,6 +1,9 @@
 var richtigeAntwort = 0
 var gestellteFragen = 0
 var punkte = 0
+val red = "\u001B[31m"
+val gruen = "\u001B[32m"
+
 //weil diese drei variable für die berechnung der richtigen Fragen und dazu die prunkte für die drei funktionen habe ich die als global variable
 //gesetzt, dass man die in allen funktionen mitnehmen kann
 fun main() {
@@ -8,13 +11,6 @@ fun main() {
     val sport = sport.shuffled()
     val kotlin = kotlin.shuffled()
     val geschichte = geschichte.shuffled()
-
-    var spieler1: Spieler
-    var spieler2: Spieler
-    var runden: Int = 5
-
-
-
 
 
     println("Wählen Sie eine Kategorie für das Spiel aus:\n" +
@@ -25,7 +21,7 @@ fun main() {
     val eingabe: String = kategorie
 
     fun pruefeEingabe():Boolean{
-        return eingabe.lowercase() == kategorie.lowercase()
+        return eingabe.toIntOrNull() == kategorie.toIntOrNull()
     }
 
     when(kategorie) {
@@ -53,7 +49,7 @@ fun starteQuizKotlin(kotlin: List<QuizKotlin>) {
         val kotlinSpieler = readln()
 
         if (aktuelleFrageKotlin.pruefeKotlin(kotlinSpieler)) {
-            println("\u001B[32mRichtiger Antwort, du hast jetzt $punkte Punkte geschafft\u001B[0m")
+            println("Richtiger Antwort, du hast jetzt $punkte Punkte geschafft")
             richtigeAntwort++
             gestellteFragen++
             punkte += 10
@@ -81,7 +77,7 @@ fun starteQuizGeschichte(geschichte: List<QuizGeschichte>): Boolean {
             println("\u001B[31m" + "Leider flasch!\u001B[0m")
             println()
             gestellteFragen++
-            punkte += 5
+            punkte += 2
         }
         aktuelleFrageGeschichte.richtigeAntwort
     }
@@ -106,7 +102,7 @@ fun starteQuizSport(sport: List<QuizSport>) {
             if (aktuelleFrageArray.zeitLimit) {
                 punkte += 10
             } else {
-                punkte -= 5
+                punkte -= 2
             }
             //ich habe es versucht eine var mit color zu defenieren wie die Dozenten erklärt haben nähmlich, dass man mit (.farbe) die farbe bestimmt
             //aber für die lesbarkeit war für mich auch schwer, deswegen habe ich mir diese methoden aus den beispielen online geholt.

@@ -1,6 +1,8 @@
+![_879265f9-d75a-4e27-bb6b-71effc791078.jpg](..%2F..%2FDownloads%2F_879265f9-d75a-4e27-bb6b-71effc791078.jpg)
 
-![12144460-cartoon-doodle-wort-quiz-vektor.jpg](..%2F..%2F..%2F..%2F..%2FDesktop%2F12144460-cartoon-doodle-wort-quiz-vektor.jpg)
-
+<p align="center">
+  ![](images/_879265f9-d75a-4e27-bb6b-71effc791078.jpg)
+</p>
 
 ## Spielerklärung
 
